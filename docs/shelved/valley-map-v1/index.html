@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valley</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Archivo:wght@500;700&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="game"></div>
+    <header id="hud">
+      <h1 class="title">Valley</h1>
+      <div class="slip day-slip">
+        <span id="day" class="day-label">Day 1</span>
+        <span class="track" aria-hidden="true"><span id="day-bar"></span><span id="day-sun"></span></span>
+        <button id="next-day" type="button">Next day <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="slip heart-slip">
+        <div class="heart-head"><span>Heart asks</span><span id="vitality" aria-label="Heart vitality"></span></div>
+        <ul id="needs"></ul>
+      </div>
+      <div class="mode" role="group" aria-label="Combining mode">
+        <button type="button" data-mode="sensible" aria-pressed="true">Sensible</button>
+        <button type="button" data-mode="wild" aria-pressed="false">Wild</button>
+      </div>
+    </header>
+    <aside id="codex">
+      <button id="codex-toggle" type="button" aria-expanded="false" aria-controls="codex-body" title="Show or hide the Almanac">
+        <span class="tab-label">Almanac</span>
+      </button>
+      <div id="codex-body" class="slip">
+        <div class="codex-head">
+          <h2>Almanac</h2>
+          <span id="count" class="chip"></span>
+        </div>
+        <p class="hint">Everything you've discovered. Drag an entry into the tray for a free copy.</p>
+        <ul id="codex-list"></ul>
+        <div class="codex-foot"><button id="reset" type="button">Reset world</button></div>
+      </div>
+    </aside>
+    <div id="toast" hidden></div>
+    <div id="drop-hint" hidden></div>
+    <div id="year-end" hidden>
+      <div class="slip year-card" role="dialog" aria-labelledby="year-title">
+        <h2 id="year-title">The year ends</h2>
+        <p id="year-summary"></p>
+        <button id="new-year" type="button">Begin a new year</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

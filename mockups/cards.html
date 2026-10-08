@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valley card mockups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Archivo+Narrow:wght@600;700&family=DM+Mono:wght@500&family=Archivo:wght@500;700&display=swap">
+<style>
+  /* Riso inks sampled from art/explore/e-riso-4ink.png */
+  :root {
+    --teal: #1f9f96; --yellow: #f7be32; --coral: #ef6c58; --blue: #254fa0; --paper: #f6efe0;
+    --paper-dark: #ebe1cb; --ink-text: #1f3a73;
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.2 0 0 0 0 0.4 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 28px 24px 48px; background: #fbf8f1; color: #2a2a2a; font: 15px/1.5 "Archivo", system-ui, sans-serif; }
+  h1 { font: 700 22px/1.2 "Archivo", sans-serif; margin: 0 0 4px; }
+  .sub { color: #6b6455; margin: 0 0 24px; max-width: 70ch; }
+  .option { margin-bottom: 36px; }
+  .option h2 { font: 700 17px/1.2 "Archivo", sans-serif; margin: 0 0 4px; }
+  .option p { margin: 0 0 12px; color: #6b6455; max-width: 70ch; font-size: 14px; }
+  .table { position: relative; border-radius: 14px; padding: 36px 28px; display: flex; flex-wrap: wrap; gap: 26px; align-items: flex-start; overflow: hidden; }
+  .table::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: .22; pointer-events: none; mix-blend-mode: multiply; }
+  .card { position: relative; width: 112px; height: 138px; display: flex; flex-direction: column; align-items: center; }
+  .card img { width: 84px; height: 84px; mix-blend-mode: multiply; margin-top: 10px; }
+  .card::after { content: ""; position: absolute; inset: 0; background: var(--grain); opacity: .14; mix-blend-mode: multiply; pointer-events: none; border-radius: inherit; }
+  .state { position: absolute; bottom: -22px; left: 0; right: 0; text-align: center; font: 500 11px/1 "DM Mono", monospace; color: #6b6455; }
+  .new { position: absolute; top: -9px; right: -9px; z-index: 2; font: 700 10px/1 "Archivo", sans-serif; letter-spacing: .06em; padding: 5px 7px; border-radius: 999px; background: var(--yellow); color: var(--ink-text); transform: rotate(8deg); mix-blend-mode: multiply; }
+
+  /* A — Paper slip: quiet cream slips with a misregistered ink shadow */
+  .a .table { background: var(--paper-dark); }
+  .a .card { background: var(--paper); border-radius: 10px; box-shadow: 4px 5px 0 rgba(31,159,150,.55); }
+  .a .card .name { font: 400 15px/1 "Young Serif", Georgia, serif; color: var(--ink-text); margin-top: 6px; }
+  .a .card.held { transform: rotate(-5deg) translateY(-10px); box-shadow: 9px 14px 0 rgba(31,159,150,.45), -2px -1px 0 rgba(239,108,88,.5); }
+  .a .card.target { box-shadow: 4px 5px 0 rgba(31,159,150,.55), 0 0 0 4px var(--coral); }
+
+  /* B — Ink frame: printed border with a coral misprint, name on an ink band */
+  .b .table { background: #d9ece8; }
+  .b .card { background: var(--paper); border-radius: 6px; border: 3px solid var(--blue); box-shadow: -3px 3px 0 rgba(239,108,88,.7); }
+  .b .card .name { position: absolute; left: -3px; right: -3px; bottom: -3px; padding: 6px 0 7px; text-align: center; background: var(--blue); color: var(--paper); font: 700 14px/1 "Archivo Narrow", sans-serif; letter-spacing: .1em; text-transform: uppercase; border-radius: 0 0 6px 6px; }
+  .b .card img { margin-top: 8px; }
+  .b .card.held { transform: rotate(4deg) translateY(-10px); box-shadow: -7px 12px 0 rgba(239,108,88,.55); }
+  .b .card.target { border-color: var(--coral); }
+  .b .card.target .name { background: var(--coral); }
+
+  /* C — Ticket on a dark ink table: perforated tickets with a category colour strip */
+  .c .table { background: var(--blue); }
+  .c .card { background: var(--paper); border-radius: 4px; -webkit-mask: radial-gradient(circle 5px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat; }
+  .c .card .strip { position: absolute; top: 0; left: 0; right: 0; height: 10px; border-radius: 4px 4px 0 0; }
+  .c .card img { margin-top: 16px; }
+  .c .card .name { font: 500 12px/1 "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-text); margin-top: 4px; }
+  .c .card.held { transform: rotate(-4deg) translateY(-10px); }
+  .c .card.target { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .c .state { color: #c9d4ec; }
+  .c .new { mix-blend-mode: normal; top: 16px; right: 6px; }
+</style>
+</head>
+<body>
+  <h1>Card and table treatments</h1>
+  <p class="sub">Same six icons (cut from the 4-ink sheet) in three treatments. Each row shows resting cards, a held card (tilted, lifted), a drop target, and a new discovery. Icons blend into the paper with multiply, like real riso ink.</p>
+
+  <section class="option a">
+    <h2>A · Paper slip</h2>
+    <p>Quiet cream slips on a darker paper table. The "shadow" is a misregistered teal print, not a real shadow. Soft serif names. The calmest of the three: the art does all the talking.</p>
+    <div class="table">
+      <div class="card"><img src="icons/tree.png" alt=""><span class="name">Tree</span></div>
+      <div class="card"><img src="icons/fish.png" alt=""><span class="name">Fish</span></div>
+      <div class="card held"><img src="icons/fire.png" alt=""><span class="name">Fire</span><span class="state">held</span></div>
+      <div class="card target"><img src="icons/cloud.png" alt=""><span class="name">Cloud</span><span class="state">drop target</span></div>
+      <div class="card"><img src="icons/brick.png" alt=""><span class="name">Brick</span></div>
+      <div class="card"><span class="new">NEW</span><img src="icons/flower.png" alt=""><span class="name">Flower</span><span class="state">new</span></div>
+    </div>
+  </section>
+
+  <section class="option b">
+    <h2>B · Ink frame</h2>
+    <p>A printed deep-blue frame with a coral misprint offset, and the name reversed out of an ink band. The most "printed matter" feel and the most readable from a distance. A pale teal table.</p>
+    <div class="table">
+      <div class="card"><img src="icons/tree.png" alt=""><span class="name">Tree</span></div>
+      <div class="card"><img src="icons/fish.png" alt=""><span class="name">Fish</span></div>
+      <div class="card held"><img src="icons/fire.png" alt=""><span class="name">Fire</span><span class="state">held</span></div>
+      <div class="card target"><img src="icons/cloud.png" alt=""><span class="name">Cloud</span><span class="state">drop target</span></div>
+      <div class="card"><img src="icons/brick.png" alt=""><span class="name">Brick</span></div>
+      <div class="card"><span class="new">NEW</span><img src="icons/flower.png" alt=""><span class="name">Flower</span><span class="state">new</span></div>
+    </div>
+  </section>
+
+  <section class="option c">
+    <h2>C · Ticket</h2>
+    <p>Perforated paper tickets on a deep-blue ink table. A colour strip on top shows the card's habitat (teal grove, blue river, coral hot things, yellow meadow), which will matter once zones arrive. Typewriter-style names. The boldest contrast.</p>
+    <div class="table">
+      <div class="card"><span class="strip" style="background:var(--teal)"></span><img src="icons/tree.png" alt=""><span class="name">Tree</span></div>
+      <div class="card"><span class="strip" style="background:#5d86d6"></span><img src="icons/fish.png" alt=""><span class="name">Fish</span></div>
+      <div class="card held"><span class="strip" style="background:var(--coral)"></span><img src="icons/fire.png" alt=""><span class="name">Fire</span><span class="state">held</span></div>
+      <div class="card target"><span class="strip" style="background:#5d86d6"></span><img src="icons/cloud.png" alt=""><span class="name">Cloud</span><span class="state">drop target</span></div>
+      <div class="card"><span class="strip" style="background:var(--coral)"></span><img src="icons/brick.png" alt=""><span class="name">Brick</span></div>
+      <div class="card"><span class="new">NEW</span><span class="strip" style="background:var(--yellow)"></span><img src="icons/flower.png" alt=""><span class="name">Flower</span><span class="state">new</span></div>
+    </div>
+  </section>
+<script>
+  // Key out the sheet's paper colour so icons sit directly on the card (the real art pipeline does the same).
+  const PAPER = [246, 239, 224];
+  for (const img of document.querySelectorAll('.card img')) {
+    const run = () => {
+      const c = document.createElement('canvas');
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      const d = ctx.getImageData(0, 0, c.width, c.height), p = d.data;
+      for (let i = 0; i < p.length; i += 4) {
+        const dist = Math.hypot(p[i] - PAPER[0], p[i + 1] - PAPER[1], p[i + 2] - PAPER[2]);
+        p[i + 3] = Math.max(0, Math.min(255, (dist - 18) * 9));
+      }
+      ctx.putImageData(d, 0, 0);
+      img.onload = null;
+      img.src = c.toDataURL();
+    };
+    img.complete ? run() : (img.onload = run);
+  }
+</script>
+</body>
+</html>

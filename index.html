@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valley</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Archivo:wght@500;700&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="game"></div>
+    <header id="hud">
+      <h1 class="title">Valley</h1>
+      <div class="slip day-slip">
+        <span id="day" class="day-label">Day 1</span>
+        <span class="track" aria-hidden="true"><span id="day-bar"></span><span id="day-sun"></span></span>
+        <button id="pause-day" type="button" aria-pressed="false" title="Pause the day: no new cards arrive">Pause</button>
+        <button id="next-day" type="button">Next day <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="hud-break" aria-hidden="true"></div>
+      <div class="mode" role="group" aria-label="Combining mode">
+        <button type="button" data-mode="sensible" aria-pressed="false">Sensible</button>
+        <button type="button" data-mode="inventive" aria-pressed="true">Inventive</button>
+        <button type="button" data-mode="wild" aria-pressed="false">Wild</button>
+      </div>
+      <button id="clear-table" class="slip" type="button" title="Remove every card from the table (keeps your Almanac)">Clear table</button>
+    </header>
+    <aside id="codex">
+      <button id="codex-toggle" type="button" aria-expanded="false" aria-controls="codex-body" title="Show or hide the Almanac">
+        <span class="tab-label">Almanac</span>
+      </button>
+      <div id="codex-body" class="slip">
+        <div class="codex-head">
+          <h2>Almanac</h2>
+          <span id="count" class="chip"></span>
+        </div>
+        <div class="view" role="group" aria-label="Almanac view">
+          <button type="button" data-view="round" aria-pressed="true">This round</button>
+          <button type="button" data-view="all" aria-pressed="false">All time</button>
+        </div>
+        <p class="hint">Drag an entry onto the table for a free copy.</p>
+        <ul id="codex-list"></ul>
+        <div class="codex-foot"><button id="reset" type="button">Reset world</button></div>
+      </div>
+    </aside>
+    <div id="toast" hidden></div>
+    <div id="bin" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="38" height="38">
+        <g class="lid"><rect x="9" y="10" width="30" height="5" rx="2.5" /><rect x="19" y="6" width="10" height="5" rx="2" /></g>
+        <path class="can" d="M12 18h24l-2.4 22a3 3 0 0 1-3 2.7H17.4a3 3 0 0 1-3-2.7z" />
+        <path class="ribs" d="M20 23v14M24 23v14M28 23v14" />
+      </svg>
+      <span>Bin</span>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
